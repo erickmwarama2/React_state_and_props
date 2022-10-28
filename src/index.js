@@ -11,8 +11,16 @@ import DefaultProperties from './DefaultProperties';
 import MyButton from './MyButton';
 import MyList from './MyList';
 import MyButtonFunctional from './MyButtonFunctional';
+import MyContainer from './MyContainer';
+import { PermissionProvider } from './PermissionContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<MyContainer/>);
+root.render(
+    <PermissionProvider>
+        <App />
+    </PermissionProvider>
+);
 
 const appState = {
     text: "My Button",
@@ -39,16 +47,16 @@ function render({first, second}) {
 }
 
 // render2(appState);
-render({
-    first: {
-        text: "My First Functional Button",
-        disabled: false
-    },
-    second: {
-        text: "Second Functional Button",
-        disabled: true
-    }
-});
+// render({
+//     first: {
+//         text: "My First Functional Button",
+//         disabled: false
+//     },
+//     second: {
+//         text: "Second Functional Button",
+//         disabled: true
+//     }
+// });
 
 setTimeout(() => {
     appState.disabled = false;
